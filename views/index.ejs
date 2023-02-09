@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Cupcakes</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <header>
+  <div class="container">
+    <% 
+    for(var i=0;i<dataCake.length;i++){
+    %>
+
+        <form action="" method="POST" class="form">
+            <div class="image-cupcake">
+                <img src=<%=dataCake[i].url%> width='200px' alt="">
+            </div>
+            <p><%=dataCake[i].name%></p>
+            <p><%=dataCake[i].price%> €</p>
+                    <button type='submit' name='ajouter'>
+                        <a href="/shop?name=<%=dataCake[i].name%>&url=<%=dataCake[i].url%>&price=<%=dataCake[i].price%>" class="button">
+                                Ajouter au panier
+                        </a>
+                    </button>
+        </form> 
+    <%
+        
+      }
+    %> 
+    </div>  
+
+  </header> 
+</body>
+</html>
