@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 var dataCake = [
-  {name: "Bleu", url:"images/bleu.jpg", price:5},
-  {name: "Caramel", url:"images/caramel.jpg", price:3},
-  {name: "Pistache", url:"images/chocolat-pistache.jpg", price:4},
-  {name: "Fraise", url:"images/fraise.jpg", price:6},
-  {name: "Fruits", url:"images/fruits.jpg", price:4},
-  {name: "Choco-vanille", url:"images/vanille-chocolat.jpg", price:3},
-  {name: "Citron", url:"images/citron.jpg", price:6},
-  {name: "Myrtille", url:"images/myrtille.jpg", price:3}
+  {name: "Bleu", url:"images/bleu.jpg", price:5, quantity:1},
+  {name: "Caramel", url:"images/caramel.jpg", price:3, quantity:1},
+  {name: "Pistache", url:"images/chocolat-pistache.jpg", price:4, quantity:1},
+  {name: "Fraise", url:"images/fraise.jpg", price:6, quantity:1},
+  {name: "Fruits", url:"images/fruits.jpg", price:4, quantity:1},
+  {name: "Choco-vanille", url:"images/vanille-chocolat.jpg", price:3, quantity:1},
+  {name: "Citron", url:"images/citron.jpg", price:6, quantity:1},
+  {name: "Myrtille", url:"images/myrtille.jpg", price:3, quantity:1}
 ]
 
 
@@ -24,14 +24,14 @@ router.get('/', function(req, res, next) {
  });
 
 
-router.get('/shop', function(req, res, next) {
+router.post('/shop', function(req, res, next) {
   console.log(req.query);
 
   dataCakeCard.push({
-    name : req.query.name,
-    url : req.query.url,
-    price : req.query.price,
-    quantity:1
+    name : req.body.name,
+    url : req.body.url,
+    price : req.body.price,
+    quantity:req.body.quantity
   })
   res.render('shop', { dataCakeCard:dataCakeCard});
  });

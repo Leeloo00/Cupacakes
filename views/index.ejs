@@ -6,26 +6,34 @@
 <body>
   <header>
   <div class="container">
+
     <% 
     for(var i=0;i<dataCake.length;i++){
     %>
-
-        <form action="" method="POST" class="form">
+    <div class="row">
+      <form action="/shop" method="POST">
             <div class="image-cupcake">
                 <img src=<%=dataCake[i].url%> width='200px' alt="">
             </div>
             <p><%=dataCake[i].name%></p>
             <p><%=dataCake[i].price%> €</p>
-                    <button type='submit' name='ajouter'>
-                        <a href="/shop?name=<%=dataCake[i].name%>&url=<%=dataCake[i].url%>&price=<%=dataCake[i].price%>" class="button">
-                                Ajouter au panier
-                        </a>
-                    </button>
-        </form> 
+            <input type="hidden" name="price" value="<%=dataCake[i].price %>">
+            <input type="hidden" name="name" value="<%=dataCake[i].name %>">
+            <input type="hidden" name="url" value="<%=dataCake[i].url %>">
+       
+              <label for="">Quantité :</label><br>
+              <input type="number" name="quantity" value="<%=dataCake[i].quantity %>" placeholder="1"><br>
+              <a href="/shop?name=<%=dataCake[i].name%>&url=<%=dataCake[i].url%>&price=<%=dataCake[i].price%>" class="button">                               
+                <button type='submit' name='ajouter'>
+                  Ajouter au panier
+                </button>
+              </a>
+      </form>
+    </div> 
     <%
         
       }
-    %> 
+    %>
     </div>  
 
   </header> 

@@ -38,6 +38,7 @@ table{
 
 
 .container{
+  margin: auto;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -47,7 +48,7 @@ table{
   border: 2px solid black;
 }
 
-.form{
+.row{
   width: 20%;
   margin: auto;
   margin: 20px;
@@ -65,7 +66,9 @@ table{
 .button{
 text-align: center;
 margin: auto;
+cursor: pointer;
 }
+
 
 svg{
   color:black;
